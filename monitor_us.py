@@ -91,13 +91,13 @@ def run_monitor():
             continue
 
         prev_close = daily['Close'].iloc[-2].item()
-        buy_price = int(prev_close * (1 - threshold))
+        buy_price = prev_close * (1 - threshold)
 
         msg = (
             f"📊 [{code}] 매수 기준 안내\n"
             f"- 전일 종가: {prev_close:,.2f}\n"
             f"- 매수 기준 등락폭: {threshold:.2%}\n"
-            f"- 매수 기준가: {buy_price:,}"
+            f"- 매수 기준가: {buy_price:.2,}"
         )
         startup_messages.append(msg)
         print(msg)
@@ -140,17 +140,17 @@ def run_monitor():
                         msg = (
                             f"🚨 {code} 매수 타이밍\n"
                             f"전일종가: {prev_close:,.2f}\n"
-                            f"매수 기준가: {int(prev_close * (1 - threshold)):,}\n"
+                            f"매수 기준가: {prev_close * (1 - threshold):.2f,}\n"
                             f"변화율: {diff:.2%} < -{threshold:.2%}\n"
-                            f"현재가: {current_price:,.2f} (전일 대비: {int(current_price - prev_close)})"
+                            f"현재가: {current_price:,.2f} (전일 대비: {current_price - prev_close:.2})"
                         )
                     else:
                         msg = (
                             f"🚨 {code} 매도 타이밍\n"
                             f"전일종가: {prev_close:,.2f}\n"
-                            f"매도 기준가: {int(prev_close * (1 + threshold)):,}\n"
+                            f"매도 기준가: {prev_close * (1 + threshold):,}\n"
                             f"변화율: {diff:.2%} > +{threshold:.2%}\n"
-                            f"현재가: {current_price:,.2f} (전일 대비: +{int(current_price - prev_close)})"
+                            f"현재가: {current_price:,.2f} (전일 대비: +{current_price - prev_close:.2f})"
                         )
                     send_telegram_alert(msg)
                     notified[code] = True
