@@ -1,0 +1,28 @@
+name: US ETF Monitor
+
+on:
+  schedule:
+    - cron: '29 13 * * 1-5'  # 한국 오후 10:29 (UTC 기준)
+  workflow_dispatch:         # 수동 실행도 가능
+
+jobs:
+  run-us-monitor:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run US ETF Monitor
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
+        run: python monitor_us.py
