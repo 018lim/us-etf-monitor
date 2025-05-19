@@ -96,7 +96,7 @@ def run_monitor():
         msg = (
             f"📊 [{code}] 매수 기준 안내\n"
             f"- 전일 종가: {prev_close:,.2f}\n"
-            f"- 2σ 등락폭: {threshold:.2%}\n"
+            f"- 매수 기준 등락폭: {threshold:.2%}\n"
             f"- 매수 기준가: {buy_price:,}"
         )
         startup_messages.append(msg)
