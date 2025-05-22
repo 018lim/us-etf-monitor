@@ -105,7 +105,7 @@ def run_monitor():
         minute = ny_now.minute
 
         # ✅ 미국 시장 감시 시간 (09:30 ~ 16:00 NY 기준)
-        if (hour < 9 or (hour == 9 and minute < 30)) or hour >= 15:
+        if (hour < 9 or (hour == 9 and minute < 30)) or hour >= 16:
             send_telegram_alert("⏹️ 미국 시장 개장 시간 외입니다. 감시 종료합니다.")
             sys.exit()
 
