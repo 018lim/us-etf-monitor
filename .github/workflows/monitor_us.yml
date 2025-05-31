@@ -2,7 +2,7 @@ name: US ETF Monitor
 
 on:
   schedule:
-    - cron: '59 13 * * 1-5'  # 한국 오후 10:29 (UTC 기준)
+    - cron: '59 13 * * 1-5'  # 한국 오후 10:59 (UTC 기준)
   workflow_dispatch:         # 수동 실행도 가능
 
 jobs:
