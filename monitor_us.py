@@ -31,7 +31,7 @@ TICKERS = {
     "구글": "GOOG"
 }
 
-INTERVAL_SECONDS = 120
+INTERVAL_SECONDS = 300
 
 # ✅ 평균, 표준편차 계산
 def get_return_stats(ticker):
