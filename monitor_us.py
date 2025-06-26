@@ -29,7 +29,6 @@ TICKERS = {
     "퀄컴": "QCOM",
     "DGRO": "DGRO",
     "구글": "GOOG"
-    
 }
 
 INTERVAL_SECONDS = 120
@@ -88,9 +87,9 @@ def run_monitor():
 
         summary_msg += (
             f"📌 {code}\n"
-            f" - 전일 종가: {int(prev_close)}\n"
-            f" - 매수 기준가: {int(buy_price)}\n"
-            f" - 매도 기준가: {int(sell_price)}\n"
+            f" - 전일 종가: {prev_close:.2f}\n"
+            f" - 매수 기준가: {buy_price:.2f}\n"
+            f" - 매도 기준가: {sell_price:.2f}\n"
             f" - 매수 기준 등락률: {(mean - 2 * std)*100:.2f}%, "
             f"매도 기준: {(mean + 2 * std)*100:.2f}%\n\n"
         )
@@ -125,10 +124,10 @@ def run_monitor():
                 if diff < mean - 2 * std:
                     msg = (
                         f"🚨 {code} 매수 타이밍\n"
-                        f"전일종가: {int(prev_close)}\n"
-                        f"매수 기준가: {int(prev_close * (1 + mean - 2 * std))}\n"
+                        f"전일종가: {prev_close:.2f}\n"
+                        f"매수 기준가: {prev_close * (1 + mean - 2 * std):.2f}\n"
                         f"매수 기준 등락율: {(mean - 2 * std)*100:.2f}%\n"
-                        f"현재가: {int(current_price)} (변화율: {diff:.2%})"
+                        f"현재가: {current_price:.2f} (변화율: {diff:.2%})"
                     )
                     send_telegram_alert(msg)
                     notified[code] = True
@@ -136,10 +135,10 @@ def run_monitor():
                 elif diff > mean + 2 * std:
                     msg = (
                         f"🚨 {code} 매도 타이밍\n"
-                        f"전일종가: {int(prev_close)}\n"
-                        f"매도 기준가: {int(prev_close * (1 + mean + 2 * std))}\n"
+                        f"전일종가: {prev_close:.2f}\n"
+                        f"매도 기준가: {prev_close * (1 + mean + 2 * std):.2f}\n"
                         f"매도 기준 등락율: {(mean + 2 * std)*100:.2f}%\n"
-                        f"현재가: {int(current_price)} (변화율: {diff:.2%})"
+                        f"현재가: {current_price:.2f} (변화율: {diff:.2%})"
                     )
                     send_telegram_alert(msg)
                     notified[code] = True
