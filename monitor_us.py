@@ -28,7 +28,9 @@ TICKERS = {
     "SOXL": "SOXL",
     "퀄컴": "QCOM",
     "DGRO": "DGRO",
-    "구글": "GOOG"
+    "구글": "GOOG",
+    "TQQQ": "TQQQ"
+
 }
 
 INTERVAL_SECONDS = 300
