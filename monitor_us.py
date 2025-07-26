@@ -27,6 +27,7 @@ def get_ny_time():
 TICKERS = {
     "SOXL": "SOXL",
     "퀄컴": "QCOM",
+    "화이자":"PFE",
     "DGRO": "DGRO",
     "구글": "GOOG",
     "TQQQ": "TQQQ"
