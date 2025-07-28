@@ -25,11 +25,12 @@ def get_ny_time():
 
 # ✅ 감시 대상
 TICKERS = {
-    "SOXL": "SOXL",
+    "버티브": "VRT",
     "퀄컴": "QCOM",
     "화이자":"PFE",
-    "DGRO": "DGRO",
     "구글": "GOOG",
+    "DGRO": "DGRO",
+    "SOXL": "SOXL",
     "TQQQ": "TQQQ"
 
 }
