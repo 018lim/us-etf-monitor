@@ -86,7 +86,7 @@ def run_monitor():
             continue
 
         prev_close = daily['Close'].iloc[-2].item()
-        buy_price = prev_close * (1 + mean - 2 * std)
+        buy_price = prev_close * (1 + mean - 1.5 * std)
         sell_price = prev_close * (1 + mean + 2 * std)
 
         summary_msg += (
@@ -94,7 +94,7 @@ def run_monitor():
             f" - 전일 종가: {prev_close:.2f}\n"
             f" - 매수 기준가: {buy_price:.2f}\n"
             f" - 매도 기준가: {sell_price:.2f}\n"
-            f" - 매수 기준 등락률: {(mean - 2 * std)*100:.2f}%, "
+            f" - 매수 기준 등락률: {(mean - 1.5 * std)*100:.2f}%, "
             f"매도 기준: {(mean + 2 * std)*100:.2f}%\n\n"
         )
 
@@ -129,8 +129,8 @@ def run_monitor():
                     msg = (
                         f"🚨 {code} 매수 타이밍\n"
                         f"전일종가: {prev_close:.2f}\n"
-                        f"매수 기준가: {prev_close * (1 + mean - 2 * std):.2f}\n"
-                        f"매수 기준 등락율: {(mean - 2 * std)*100:.2f}%\n"
+                        f"매수 기준가: {prev_close * (1 + mean - 1.5 * std):.2f}\n"
+                        f"매수 기준 등락율: {(mean - 1.5 * std)*100:.2f}%\n"
                         f"현재가: {current_price:.2f} (변화율: {diff:.2%})"
                     )
                     send_telegram_alert(msg)
