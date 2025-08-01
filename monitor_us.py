@@ -80,7 +80,7 @@ def run_monitor():
         mean, std = get_return_stats(ticker)
         stats[code] = (mean, std)
 
-        daily = yf.download(ticker, period="2d", interval="1d")
+        daily = yf.download(ticker, period="5d", interval="1d")
         if len(daily) < 2:
             summary_msg += f"{code}: ❌ 전일 종가 불러오기 실패\n"
             continue
