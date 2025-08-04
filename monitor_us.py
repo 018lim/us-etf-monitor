@@ -25,9 +25,14 @@ def get_ny_time():
 
 # ✅ 감시 대상
 TICKERS = {
-    "버티브": "VRT",
-    "퀄컴": "QCOM",
+    "넥스트에라":"NEE",
+    "펩시":"PEP",
     "화이자":"PFE",
+    "버티브": "VRT",
+    "팔로알토":"PANW",
+    "퀄컴": "QCOM",
+    "쇼피파이":"SHOP",
+    "ASML":"ASML",
     "구글": "GOOG",
     "DGRO": "DGRO",
     "SOXL": "SOXL",
