@@ -27,6 +27,7 @@ def get_ny_time():
 TICKERS = {
     "넥스트에라":"NEE",    
     "화이자":"PFE",
+    "UTD 헬스":"UNH",
     "버티브": "VRT",
     "팔로알토":"PANW",
     "퀄컴": "QCOM",
